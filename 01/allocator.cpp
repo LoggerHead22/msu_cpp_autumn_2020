@@ -31,7 +31,8 @@ char* Allocator::alloc(size_t size)
     return curr_ptr;
 }
 
-void Allocator::reset(){
+void Allocator::reset()
+{
     Allocator::offset = 0;
 }
 

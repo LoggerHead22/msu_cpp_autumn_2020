@@ -44,7 +44,7 @@ void ResetTest()
     assert(my_alloc.alloc(5) != nullptr); //5
     assert(my_alloc.alloc(5) != nullptr); //10
     assert(my_alloc.alloc(3) == nullptr); //13!
-    my_alloc.reset();                  //0
+    my_alloc.reset();                     //0
     assert(my_alloc.alloc(3) != nullptr); //3
 }
 
