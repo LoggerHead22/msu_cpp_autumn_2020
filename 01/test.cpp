@@ -1,17 +1,12 @@
 #include "allocator.h"
 #include <cassert>
 
-void BadInputDataTest()
+
+void MakeAllocTest()
 {
     Allocator my_alloc;
     assert(my_alloc.makeAllocator(0) == -1);
-    assert(my_alloc.makeAllocator(1e10) == -1);
-    assert(my_alloc.makeAllocator(10) == 0);
-}
-
-void MultipleMakeAllocTest()
-{
-    Allocator my_alloc;
+    // нельзя выделить 0 байт
     assert(my_alloc.makeAllocator(10) == 0);
     //нельзя вызывать makeAllocator 2 раза
     //иначе будет 2 new и 1 delete
@@ -27,6 +22,7 @@ void AllocTest()
     assert(my_alloc.alloc(3) != nullptr); //6
     assert(my_alloc.alloc(3) != nullptr); //9
     assert(my_alloc.alloc(3) == nullptr); //12!
+    assert(my_alloc.alloc(0) == nullptr); //нельзя получить 0 байт
     assert(my_alloc.alloc(1) != nullptr); //10
     assert(my_alloc.alloc(1) == nullptr); //11!
 }
@@ -55,8 +51,7 @@ void ResetTest()
 
 int main()
 {
-    BadInputDataTest();
-    MultipleMakeAllocTest();
+    MakeAllocTest();
     AllocTest();
     NoMakeAllocTest();
     ResetTest();

@@ -22,7 +22,9 @@ int Allocator::makeAllocator(size_t maxSize)
 char* Allocator::alloc(size_t size)
 {
     char* curr_ptr = nullptr;
-    if((Allocator::start_ptr !=nullptr) && (size <= Allocator::maxSize - Allocator::offset)){
+    if((Allocator::start_ptr !=nullptr) && (size != 0) &&
+       (size <= Allocator::maxSize - Allocator::offset))
+    {
         curr_ptr = Allocator::start_ptr + Allocator::offset;
         Allocator::offset += size;
     }
