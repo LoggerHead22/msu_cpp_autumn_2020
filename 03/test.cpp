@@ -122,8 +122,8 @@ void testIsEqualMatrix()
 
     assert(M1 == M4);
     assert(M1 == M1);
-    assert(!(M1 == M2)); //разные значения
-    assert(!(M1 == M3)); //разные размеры
+    assert(M1 != M2); //разные значения
+    assert(M1 != M3); //разные размеры
 }
 
 void testInitMatrix()

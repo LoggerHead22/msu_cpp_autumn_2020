@@ -67,6 +67,7 @@ Matrix& Matrix::operator=(const Matrix& rMatrix){
 	return *this;
 }
 
+
 MatrixProxy Matrix::operator[](size_t row) const  //Взять строку матрицы
 {
         if(row >= Matrix::rowCount){
@@ -75,7 +76,9 @@ MatrixProxy Matrix::operator[](size_t row) const  //Взять строку ма
         return MatrixProxy(Matrix::Matr + Matrix::colCount * row, Matrix::colCount);
 }
 	
-Matrix Matrix::operator+(const Matrix& rMatrix){
+
+Matrix Matrix::operator+(const Matrix& rMatrix)const
+{
         if((this->rowCount != rMatrix.rowCount) || (this->colCount != rMatrix.colCount)){
                 throw std::out_of_range("Input Matrix has different shape");
 	}
@@ -86,8 +89,10 @@ Matrix Matrix::operator+(const Matrix& rMatrix){
 	}
 	return M;
 }
-	
-Matrix Matrix::operator*(const int mult){
+
+
+Matrix Matrix::operator*(const int mult) const
+{
 	Matrix M(this->rowCount,this->colCount);
         for(size_t i = 0;i<this->rowCount * this->colCount; i++){
                 M.Matr[i] = this->Matr[i] * mult;
@@ -95,10 +100,12 @@ Matrix Matrix::operator*(const int mult){
 	return M;
 }
 
+
 Matrix& Matrix::operator+=(const Matrix& rMatrix){
     *this = *this + rMatrix;
     return *this;
 }
+
 
 Matrix& Matrix::operator*=(const int mult){
     *this = *this * mult;
@@ -106,7 +113,8 @@ Matrix& Matrix::operator*=(const int mult){
 }
 
 
-bool Matrix::operator==(const Matrix& rMatrix){
+bool Matrix::operator==(const Matrix& rMatrix) const
+{
         bool res = true;
         if((this->rowCount != rMatrix.rowCount) || (this->colCount != rMatrix.colCount)){
 		res = false;
@@ -119,6 +127,13 @@ bool Matrix::operator==(const Matrix& rMatrix){
 		}
 	}
 	return res;	
+}
+
+
+bool Matrix::operator!=(const Matrix& rMatrix) const
+{
+        bool res = !(*this == rMatrix);
+        return res;
 }
 
 
@@ -148,4 +163,3 @@ ostream& operator<<(ostream& stream, const Matrix& rMatrix){
 	}
 	return stream;
 } 
-

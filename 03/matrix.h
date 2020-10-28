@@ -39,8 +39,8 @@ public:
 	
         Matrix& operator=(const Matrix& rMatrix);
 	
-        Matrix operator+(const Matrix& rMatrix);
-	Matrix operator*(const int mult);
+        Matrix operator+(const Matrix& rMatrix) const;
+        Matrix operator*(const int mult) const;
 
         Matrix& operator+=(const Matrix& rMatrix);
         Matrix& operator*=(const int mult);
@@ -48,7 +48,8 @@ public:
         int getRows() const;
         int getColumns() const;
 
-        bool operator==(const Matrix& rMatrix);
+        bool operator==(const Matrix& rMatrix)const;
+        bool operator!=(const Matrix& rMatrix)const;
 
 	~Matrix();
 	
