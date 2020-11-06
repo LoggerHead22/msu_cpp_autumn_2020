@@ -74,7 +74,7 @@ BigInt& BigInt::operator=(BigInt&& other){
 	if(this == &other){
 		return *this;
 	}
-	delete[] numBlocks;
+    delete[] numBlocks;
 	blockCount = move(other.blockCount);
 	numberSize = move(other.numberSize);
 	isNegative = move(other.isNegative);
