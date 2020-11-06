@@ -48,14 +48,9 @@ BigInt::BigInt(BigInt&& other):
 	other.numberSize = 0;
 }
 
-BigInt::BigInt(const int&other){
+BigInt::BigInt(int other){
 	
 	*this = BigInt(to_string(other));
-}
-
-BigInt::BigInt(int&& other){
-	
-	*this = BigInt(to_string(move(other)));
 }
 
 //Операторы
@@ -92,11 +87,6 @@ BigInt& BigInt::operator=(BigInt&& other){
 	return *this;
 }
 
-BigInt& BigInt::operator=(int&& other){
-	*this = BigInt(to_string(move(other)));
-	return *this;
-}
-	
 //Деструктор
 BigInt::~BigInt(){
 	delete[] numBlocks;
@@ -152,7 +142,7 @@ BigInt BigInt::operator+(const BigInt& other) const{
 	return BigInt(newNumber);
 }
 
-BigInt BigInt::operator+(const int& other) const{
+BigInt BigInt::operator+(int other) const{
 	return *this + BigInt(to_string(other));
 }
 
@@ -160,7 +150,7 @@ BigInt BigInt::operator-(const BigInt& other) const{
 	return *this + (-other);
 }
 
-BigInt BigInt::operator-(const int& other) const{
+BigInt BigInt::operator-(int other) const{
 	return *this + (-BigInt(to_string(other)));
 }
 
@@ -170,7 +160,7 @@ BigInt& BigInt::operator+=(const BigInt& other){
 	return *this;
 }
 
-BigInt& BigInt::operator+=(const int& other){
+BigInt& BigInt::operator+=(int other){
 	*this = *this + other;
 	return *this;
 }
@@ -180,7 +170,7 @@ BigInt& BigInt::operator-=(const BigInt& other){
 	return *this;
 }
 
-BigInt& BigInt::operator-=(const int& other){
+BigInt& BigInt::operator-=(int other){
 	*this = *this - other;
 	return *this;
 }
@@ -241,7 +231,7 @@ BigInt BigInt::operator*(const BigInt& other) const{
 	return BigInt(newNumber);
 }
 
-BigInt BigInt::operator*(const int& other) const{
+BigInt BigInt::operator*(int other) const{
 	return (*this * BigInt(to_string(other)));
 }
 
@@ -250,7 +240,7 @@ BigInt& BigInt::operator*=(const BigInt& other){
 	return *this;
 }
 
-BigInt& BigInt::operator*=(const int& other){
+BigInt& BigInt::operator*=(int other){
 	*this = *this * other;
 	return *this;
 }
@@ -306,28 +296,28 @@ bool BigInt::operator!=(const BigInt& other) const{
 }
 
 
-bool BigInt::operator<(const int& other) const{
+bool BigInt::operator<(int other) const{
 	return (*this < BigInt(to_string(other)));
 }
 
-bool BigInt::operator<=(const int& other) const{
+bool BigInt::operator<=(int other) const{
 	return ((*this == other) || (*this < other));
 }
 
 
-bool BigInt::operator>(const int& other) const{
+bool BigInt::operator>(int other) const{
 	return !(*this <= other);
 }
 
-bool BigInt::operator>=(const int& other) const{
+bool BigInt::operator>=(int other) const{
 	return !(*this < other);
 }
 
-bool BigInt::operator==(const int& other) const{
+bool BigInt::operator==(int other) const{
 	return *this == BigInt(to_string(other));
 }
 
-bool BigInt::operator!=(const int& other) const{
+bool BigInt::operator!=(int other) const{
 	return !(*this == other);
 }
 

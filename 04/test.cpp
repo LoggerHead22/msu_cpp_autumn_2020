@@ -186,6 +186,7 @@ void streamTest(){
 
 
 int main(){
+
 	EqualTest();
 	LessEqTest();
 	GreatherEqTest();
