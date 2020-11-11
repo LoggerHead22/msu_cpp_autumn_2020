@@ -40,13 +40,13 @@ public:
 private:
 
     void process(uint64_t value)
-	{
+    {
         *out_ << value;
         *out_ << Separator;
     }
     
     void process(bool value)
-	{
+    {
         if(value){
             *out_ << "true";
         }else{
