@@ -27,7 +27,7 @@ struct Data_2
     uint64_t a;
     bool b;
     bool c;
-	uint64_t d;
+    uint64_t d;
 
     template <class Serializer>
     Error serialize(Serializer& serializer)
@@ -118,11 +118,11 @@ void TestCase3(){
 
 
 int main(){
-	TestCase1();
-	TestCase2();
-	TestCase3();
-	
-	cout<<"Success!"<<endl;
-	
-	return 0;
+    TestCase1();
+    TestCase2();
+    TestCase3();
+    
+    cout<<"Success!"<<endl;
+    
+    return 0;
 };

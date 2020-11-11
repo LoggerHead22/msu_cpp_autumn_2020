@@ -34,17 +34,19 @@ public:
     Error operator()(ArgsT... args)
     {
         process(args...);
-	    return Error::NoError;
+        return Error::NoError;
     }
     
 private:
 
-    void process(uint64_t value){
+    void process(uint64_t value)
+	{
         *out_ << value;
         *out_ << Separator;
     }
     
-    void process(bool value){
+    void process(bool value)
+	{
         if(value){
             *out_ << "true";
         }else{

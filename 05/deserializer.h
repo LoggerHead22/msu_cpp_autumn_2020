@@ -19,7 +19,7 @@ public:
     }
 
     template <class... ArgsT>
-	Error operator()(ArgsT&... args)
+    Error operator()(ArgsT&... args)
     {
         return process(args...);
     }
@@ -27,7 +27,7 @@ public:
 
 private:
     Error process(uint64_t &value)
-	{
+    {
         string number;
         uint64_t num;
         
