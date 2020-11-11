@@ -14,7 +14,7 @@ struct Data_1
         return serializer(a, b, c);
     }
 	
-	template <class Deserializer>
+    template <class Deserializer>
     Error deserialize(Deserializer& deserializer)
     {
         return deserializer(a, b, c);
@@ -35,7 +35,7 @@ struct Data_2
         return serializer(a, b, c, d);
     }
 	
-	template <class Deserializer>
+    template <class Deserializer>
     Error deserialize(Deserializer& deserializer)
     {
         return deserializer(a, b, c, d);
