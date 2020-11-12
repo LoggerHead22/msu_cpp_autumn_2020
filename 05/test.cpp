@@ -85,7 +85,7 @@ void TestCase2(){
     assert(x_1.a == x_2.a);
     assert(x_1.b == x_2.b);
     assert(x_1.c == x_2.c);
-    
+
     err = deserializer.load(y_2);
     
     assert(err == Error::NoError);

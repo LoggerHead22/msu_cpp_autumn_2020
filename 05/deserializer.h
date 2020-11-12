@@ -5,10 +5,10 @@ class Deserializer
 {
 private:
     static constexpr char Separator = ' ';
-    istream *in_;
+    istream &in_;
 public:
     explicit Deserializer(std::istream& in)
-        : in_(&in)
+        : in_(in)
     {
     }
 
@@ -31,10 +31,10 @@ private:
         string number;
         uint64_t num;
         
-        *in_ >> number;
+        in_ >> number;
         try{
             num = stoull(number);	
-        }catch(const std::invalid_argument&){
+        }catch(const std::logic_error&){
             return Error::CorruptedArchive;
         }
         
@@ -45,7 +45,7 @@ private:
     Error process(bool &value)
     {	
         std::string text;
-        *in_ >> text;
+        in_ >> text;
         
         if (text == "true")
             value = true;
@@ -60,7 +60,7 @@ private:
     Error process(T& arg, ArgsT&... args)
     {
         if(process(arg) == Error::NoError && 
-                process(forward<ArgsT&>(args)...) == Error::NoError){	
+				process(args...) == Error::NoError){	
             return Error::NoError;
         }
         

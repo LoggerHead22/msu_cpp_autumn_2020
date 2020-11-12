@@ -16,11 +16,11 @@ class Serializer
 	
 private:
     static constexpr char Separator = ' ';
-    ostream *out_;
+    ostream &out_;
 	
 public:
     explicit Serializer(std::ostream& out)
-        : out_(&out)
+        : out_(out)
     {
     }
 
@@ -41,25 +41,25 @@ private:
 
     void process(uint64_t value)
     {
-        *out_ << value;
-        *out_ << Separator;
+        out_ << value;
+        out_ << Separator;
     }
     
     void process(bool value)
     {
         if(value){
-            *out_ << "true";
+            out_ << "true";
         }else{
-            *out_ << "false";
+            out_ << "false";
         }
-        *out_ << Separator;
+        out_ << Separator;
     }
     
     template <class T, class... ArgsT>
     Error process(T arg, ArgsT... args)
     {
         process(arg);
-        process(forward<ArgsT>(args)...);
+        process(args...);
         return Error::NoError;
     }
 
