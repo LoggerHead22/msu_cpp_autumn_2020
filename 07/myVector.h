@@ -111,6 +111,8 @@ public:
         other.data_ = nullptr;
         other.size_ = 0;
         other.capacity_ = 0;
+		other.alloc.ptr_ = nullptr;
+		
     }
     
     Vector<T>& operator=(const Vector<T>& other){
@@ -143,7 +145,8 @@ public:
         other.data_ = nullptr;
         other.size_ = 0;
         other.capacity_ = 0;
-
+		other.alloc.ptr_ = nullptr;
+		
         return *this;
     }
     
