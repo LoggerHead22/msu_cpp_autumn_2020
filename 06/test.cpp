@@ -66,7 +66,7 @@ void TestCase3(){
 
 void TestCase4(){
 	//Тест с некоректным значением внутри скобок
-	bool catch_error = false;
+    bool catch_error = false;
 	
     try{
         string s1 = format("{-1}+{-1} = {0}", 2, "one");
@@ -75,7 +75,7 @@ void TestCase4(){
     }
     //проверим словилось ли исключение
     assert(catch_error);
-	catch_error = false;
+    catch_error = false;
 	
 	try{
         string s2 = format("{0}+{1}+{abc} = {def}", "one", "two", "three", 6);
@@ -84,7 +84,7 @@ void TestCase4(){
     }
     //проверим словилось ли исключение
     assert(catch_error);
-	catch_error = false;
+    catch_error = false;
 	
 	try{
 		string s3 = format("{21}+{1}+{7} = {3} or {4}", 0.5, "two", 2.5, 6, "six");
@@ -93,7 +93,7 @@ void TestCase4(){
     }
     //проверим словилось ли исключение
     assert(catch_error);
-	catch_error = false;	
+    catch_error = false;	
 	
 	try{
 		string s4 = format("{}+{1}+{0.5} = {3} or {4}", 0.5, "two", 2.5, 6, "six");
@@ -102,16 +102,16 @@ void TestCase4(){
     }
     //проверим словилось ли исключение
     assert(catch_error);
-	catch_error = false;	
+    catch_error = false;	
 }
 
 int main()
 {
 	
-	TestCase1();
-	TestCase2();
-	TestCase3();
-	TestCase4();
+    TestCase1();
+    TestCase2();
+    TestCase3();
+    TestCase4();
 	
 	
     std::cout << "Success!\n";

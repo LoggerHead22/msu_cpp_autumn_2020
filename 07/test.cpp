@@ -239,73 +239,73 @@ void TestCase6(){
 }
 
 void TestCase7(){
-	//Конструкторы
-	Vector<int> v1(5);
-	for(size_t i = 0 ; i < 5; i++){
-		v1[i] = i * i;
-	}
-	
-	Vector<int> v2 = v1; //конструктор копирования
+    //Конструкторы
+    Vector<int> v1(5);
+    for(size_t i = 0 ; i < 5; i++){
+        v1[i] = i * i;
+    }
+    
+    Vector<int> v2 = v1; //конструктор копирования
 
-	assert(v2[0] == 0);
-	assert(v2[1] == 1);
-	assert(v2[2] == 4);
-	assert(v2[3] == 9);
-	assert(v2[4] == 16);
-	assert(v2.size() == v1.size());
-	assert(v2.capacity() == v1.capacity());
-	
-	for(size_t i = 0 ; i < 5; i++){
-		v2[i] += 1;
-	}
-	
-	v2.push_back(-1);
-	v2.push_back(-2);
-	
+    assert(v2[0] == 0);
+    assert(v2[1] == 1);
+    assert(v2[2] == 4);
+    assert(v2[3] == 9);
+    assert(v2[4] == 16);
+    assert(v2.size() == v1.size());
+    assert(v2.capacity() == v1.capacity());
+    
+    for(size_t i = 0 ; i < 5; i++){
+        v2[i] += 1;
+    }
+    
+    v2.push_back(-1);
+    v2.push_back(-2);
+    
 
-	v1 = v2; //оператор копирования
-	
-	assert(v2[0] == 1);
-	assert(v2[1] == 2);
-	assert(v2[2] == 5);
-	assert(v2[3] == 10);
-	assert(v2[4] == 17);
-	assert(v2[5] == -1);
-	assert(v2[6] == -2);
-	assert(v2.size() == v1.size());
-	assert(v2.capacity() == v1.capacity());
+    v1 = v2; //оператор копирования
+    
+    assert(v2[0] == 1);
+    assert(v2[1] == 2);
+    assert(v2[2] == 5);
+    assert(v2[3] == 10);
+    assert(v2[4] == 17);
+    assert(v2[5] == -1);
+    assert(v2[6] == -2);
+    assert(v2.size() == v1.size());
+    assert(v2.capacity() == v1.capacity());
 
-	Vector<int> v3 = move(v1); //конструктор перемещения
-	
-	assert(v3[0] == 1);
-	assert(v3[1] == 2);
-	assert(v3[2] == 5);
-	assert(v3[3] == 10);
-	assert(v3[4] == 17);
-	assert(v3[5] == -1);
-	assert(v3[6] == -2);
-	assert(v3.size() == 7);
-	assert(v3.capacity() == 8);
-	
-	assert(v1.size() == 0);
-	assert(v1.capacity() == 0);
+    Vector<int> v3 = move(v1); //конструктор перемещения
+    
+    assert(v3[0] == 1);
+    assert(v3[1] == 2);
+    assert(v3[2] == 5);
+    assert(v3[3] == 10);
+    assert(v3[4] == 17);
+    assert(v3[5] == -1);
+    assert(v3[6] == -2);
+    assert(v3.size() == 7);
+    assert(v3.capacity() == 8);
+    
+    assert(v1.size() == 0);
+    assert(v1.capacity() == 0);
 
-	Vector<int> v4;
-	
-	v4 = move(v2); //оператор перемещения
-	
-	assert(v4[0] == 1);
-	assert(v4[1] == 2);
-	assert(v4[2] == 5);
-	assert(v4[3] == 10);
-	assert(v4[4] == 17);
-	assert(v4[5] == -1);
-	assert(v4[6] == -2);
-	assert(v4.size() == 7);
-	assert(v4.capacity() == 8);
-	
-	assert(v2.size() == 0);
-	assert(v2.capacity() == 0);
+    Vector<int> v4;
+    
+    v4 = move(v2); //оператор перемещения
+    
+    assert(v4[0] == 1);
+    assert(v4[1] == 2);
+    assert(v4[2] == 5);
+    assert(v4[3] == 10);
+    assert(v4[4] == 17);
+    assert(v4[5] == -1);
+    assert(v4[6] == -2);
+    assert(v4.size() == 7);
+    assert(v4.capacity() == 8);
+    
+    assert(v2.size() == 0);
+    assert(v2.capacity() == 0);
 
 }
 
@@ -318,7 +318,7 @@ int main()
     TestCase4();
     TestCase5();
     TestCase6();
-	TestCase7();
+    TestCase7();
 
     cout<<"Success!"<<endl;
     return 0;
