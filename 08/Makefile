@@ -1,5 +1,5 @@
 CC=g++
-FLAGS= -std=c++17 -Wall -Wno-unused-variable -Wextra
+FLAGS= -std=c++17 -pthread -Wall -Wno-unused-variable -Wextra
 all: thread_pool_test
 
 thread_pool_test: test.o 
